@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<h1>Users</h1>
+<p>Type something in the input field to search user with name or email:</p>
+<input class="form-control" id="search" type="text" placeholder="Search..">
+<br>
+<%= render partial: 'users_list' %>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
+<script type="text/javascript">
+    $(document).ajaxSend(function(event, jqxhr, settings){
+        $("#users_list").LoadingOverlay("show");
+    });
+    $(document).ajaxComplete(function(event, jqxhr, settings){
+        $("#users_list").LoadingOverlay("hide");
+    });
+</script>
